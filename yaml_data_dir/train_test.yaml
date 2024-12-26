@@ -1,4 +1,4 @@
-train: /home/patel_zeel/kiln_compass_24/data/west_bengal
-val: /home/patel_zeel/kiln_compass_24/data/punjab
+train: /home/patel_zeel/kiln_compass_24/data/punjab
+val: /home/patel_zeel/kiln_compass_24/data/west_bengal
 nc: 3
 names: ['CFCBK',FCBK', 'Zigzag']

@@ -1,12 +1,14 @@
-name=train_punjab_val_west_bengal
+base_state="punjab"
+target_state="haryana"
+name="train_${base_state}_val_${target_state}"
 task=obb
 suffix=v1
 image_size=640
 batch_size=128
-epochs=3002
+epochs=300
 device=2
 train_model=yolo11m-obb.pt
-train_test_zone=train_punjab_test_west_bengal
+train_test_zone=train_${base_state}_test_west_bengal
 model_dir=/home/rishabh.mondal/Brick-Kilns-project/ijcai_2025_kilns/runs/obb/$train_test_zone\_$task\_$suffix\_$train_model\_$image_size\_$batch_size\_$epochs/weights
 model=best.pt
 base_path=/home/rishabh.mondal/Brick-Kilns-project/ijcai_2025_kilns

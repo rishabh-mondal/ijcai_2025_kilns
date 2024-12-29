@@ -1,0 +1,4 @@
+train: dummy
+val: dummy
+nc: 3
+names: ["CFCBK", "FCBK", "Zigzag"]

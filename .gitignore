@@ -2,3 +2,4 @@ runs/obb/*
 region_performance_logs/*
 sh_notebooks/*.pt
 result_csv/*.csv
+data/*

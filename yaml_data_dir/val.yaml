@@ -1,4 +1,4 @@
-train: /home/patel_zeel/kiln_compass_24/data/punjab
-val: /home/patel_zeel/kiln_compass_24/data/haryana
+train: /home/rishabh.mondal/Brick-Kilns-project/ijcai_2025_kilns/data/region_performace/west_bengal_0.25
+val: /home/rishabh.mondal/Brick-Kilns-project/ijcai_2025_kilns/data/region_performace/bihar_0.25
 nc: 3
-names: ['CFCBK',FCBK', 'Zigzag']
+names: ['CFCBK','FCBK', 'Zigzag']

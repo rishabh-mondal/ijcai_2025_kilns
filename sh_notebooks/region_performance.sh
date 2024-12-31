@@ -1,4 +1,7 @@
-name=train_punjab_test_west_bengal
+train_state="uttar_pradesh"
+test_state="bihar"
+name="train_${train_state}_test_${test_state}"
+ratio=0.25
 task=obb
 suffix=v1
 model_dir=/home/patel_zeel/kiln_compass_24
@@ -12,12 +15,13 @@ data_path=$base_path/yaml_data_dir/train_test.yaml
 val=False
 # val_interval=10 #not supported in train mode 
 save_conf=True
-save_txt=True
-experiment_name=$name\_$task\_$suffix\_$model\_$image_size\_$batch_size\_$epochs
+save_txt=False
+experiment_name=$name\_$ratio\_$task\_$suffix\_$model\_$image_size\_$batch_size\_$epochs
 log_file=$base_path/region_performance_logs/$experiment_name
 
 echo "Name: $name"
 echo "Task: $task"
+echo "Ratio: $ratio"
 echo "Suffix: $suffix"
 echo "Model: $model"
 echo "Image Size: $image_size"

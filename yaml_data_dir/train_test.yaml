@@ -1,4 +1,3 @@
-train: /home/rishabh.mondal/Brick-Kilns-project/ijcai_2025_kilns/data/region_performace/uttar_pradesh_0.25
-val: /home/rishabh.mondal/Brick-Kilns-project/ijcai_2025_kilns/data/region_performace/bihar_0.25
-nc: 3
+train: /home/rishabh.mondal/Brick-Kilns-project/ijcai_2025_kilns/data/region_performace/punjab_same_class_count
+val: /home/rishabh.mondal/Brick-Kilns-project/ijcai_2025_kilns/data/region_performace/test_bihar_same_class_count
 names: ['CFCBK','FCBK', 'Zigzag']

@@ -1,4 +1,4 @@
-train_state="punjab"
+train_state="haryana"
 test_state="bihar"
 name="train_${train_state}_test_${test_state}"
 ratio=same_class_count

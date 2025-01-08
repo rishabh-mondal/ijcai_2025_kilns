@@ -6,3 +6,6 @@ data/*
 processed_data/*
 raw_data/*
 predict/*
+hand_validation/*
+hand_validation_annotated/*
+handvalidation_cache_dir/*

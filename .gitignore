@@ -4,3 +4,5 @@ sh_notebooks/*.pt
 result_csv/*.csv
 data/*
 processed_data/*
+raw_data/*
+predict/*

@@ -87,8 +87,8 @@ def train_fn(
         g_scaler.update()
 
         if idx % 200 == 0:
-            save_image(fake_horse, f"../data/cyclegan_data/saved_images/bihar_{idx}.png")
-            save_image(fake_zebra, f"../data/cyclegan_data/saved_images/zebra_{idx}.png")
+            save_image(fake_horse, f"../data/cyclegan_data/saved_images/west_bengal_{idx}.png")
+            save_image(fake_zebra, f"../data/cyclegan_data/saved_images/punjab_{idx}.png")
 
         loop.set_postfix(H_real=H_reals / (idx + 1), H_fake=H_fakes / (idx + 1))
 
@@ -140,8 +140,8 @@ def main():
         )
 
     dataset = HorseZebraDataset(
-        root_horse=config.TRAIN_DIR + "/bihar_same_class_count_10_120_1000/images",
-        root_zebra=config.TRAIN_DIR + "/test_bihar_same_class_count_10_120_1000/images",
+        root_horse=config.TRAIN_DIR + "/west_bengal/images",
+        root_zebra=config.TRAIN_DIR + "/punjab/images",
         transform=config.transforms,
 
     )

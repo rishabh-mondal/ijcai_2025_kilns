@@ -34,4 +34,7 @@ class HorseZebraDataset(Dataset):
             zebra_img = augmentations["image"]
             horse_img = augmentations["image0"]
 
-        return zebra_img, horse_img
+        zebra_filename = os.path.basename(zebra_path)
+        horse_filename = os.path.basename(horse_path)    
+
+        return zebra_img, horse_img,zebra_filename,horse_filename

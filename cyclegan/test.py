@@ -15,11 +15,12 @@ from tqdm import tqdm
 from torchvision.utils import save_image
 from discriminator_model import Discriminator
 from generator_model import Generator
+import os
 
 
 def test_fn(gen_H, gen_Z, test_loader):
     loop = tqdm(test_loader, leave=True)
-    for idx, (zebra, horse) in enumerate(loop):
+    for idx, (zebra, horse,zebra_filename,horse_filename) in enumerate(loop):
         zebra = zebra.to(config.DEVICE)
         horse = horse.to(config.DEVICE)
 
@@ -27,8 +28,14 @@ def test_fn(gen_H, gen_Z, test_loader):
             fake_horse = gen_H(zebra)
             fake_zebra = gen_Z(horse)
 
-        save_image(fake_horse, f"../data/cyclegan_data/test_output/fake_horse_{idx}.png")
-        save_image(fake_zebra, f"../data/cyclegan_data/test_output/fake_zebra_{idx}.png")
+        base_name1 = zebra_filename[0].split(".")[0]
+        base_name2 = horse_filename[0].split(".")[0]
+        directory = "../data/cyclegan_data/test_output/fake_bihar_same_class_count_10_120_1000/images"
+        os.makedirs(directory, exist_ok=True)
+
+
+        save_image(fake_horse, f"{directory}/{base_name1}.png")
+        # save_image(fake_zebra, f"../data/cyclegan_data/test_output/fake_zebra/{base_name2}.png")
 
 def main():
     # Initialize models
@@ -54,8 +61,8 @@ def main():
 
     # Load test dataset
     test_dataset = HorseZebraDataset(
-        root_horse=config.TEST_DIR + "/vlm_data/bihar_most_15/images",
-        root_zebra=config.TEST_DIR + "/vlm_data/haryana_most_15/images",
+        root_horse=config.TEST_DIR + "/region_performance/bihar_same_class_count_10_120_1000/images",
+        root_zebra=config.TEST_DIR + "/region_performance/test_bihar_same_class_count_10_120_1000/images",
         transform=config.transforms,
     )
     test_loader = DataLoader(

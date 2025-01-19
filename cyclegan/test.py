@@ -28,13 +28,19 @@ def test_fn(gen_H, gen_Z, test_loader):
             fake_horse = gen_H(zebra)
             fake_zebra = gen_Z(horse)
 
-        base_name1 = zebra_filename[0].split(".")[0]
-        base_name2 = horse_filename[0].split(".")[0]
-        directory = "../data/cyclegan_data/test_output/fake_bihar_same_class_count_10_120_1000/images"
-        os.makedirs(directory, exist_ok=True)
+        fake_zebra_files = zebra_filename[0].split(".")[0]
+        fake_horse_files = horse_filename[0].split(".")[0]
+        directory1 = "../data/cyclegan_data/test_output/fake_test_bihar_same_class_count_10_120_1000"
+        # directory2 = "../data/cyclegan_data/test_output/fake_zebra"
+
+        os.makedirs(directory1, exist_ok=True)
+        # os.makedirs(directory2, exist_ok=True)
 
 
-        save_image(fake_horse, f"{directory}/{base_name1}.png")
+        save_image(fake_horse, f"{directory1}/{fake_horse_files}.png")
+        # save_image(fake_zebra, f"{directory2}/{fake_zebra_files}.png")
+        # save_image(fake_horse, f"../data/cyclegan_data/test_output/fake_horse/{base_name1}.png")
+        # save_image(fake_zebra, f"../data/cyclegan_data/test_output/fake_zebra/{base_name2}.png")
         # save_image(fake_zebra, f"../data/cyclegan_data/test_output/fake_zebra/{base_name2}.png")
 
 def main():
@@ -61,8 +67,8 @@ def main():
 
     # Load test dataset
     test_dataset = HorseZebraDataset(
-        root_horse=config.TEST_DIR + "/region_performance/bihar_same_class_count_10_120_1000/images",
-        root_zebra=config.TEST_DIR + "/region_performance/test_bihar_same_class_count_10_120_1000/images",
+        root_horse=config.TEST_DIR + "/region_performance/test_bihar_same_class_count_10_120_1000/images",
+        root_zebra=config.TEST_DIR + "/region_performance/bihar_same_class_count_10_120_1000/images",
         transform=config.transforms,
     )
     test_loader = DataLoader(

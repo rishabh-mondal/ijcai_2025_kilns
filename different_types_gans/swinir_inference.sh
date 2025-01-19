@@ -1,0 +1,2 @@
+python3 /home/rishabh.mondal/Brick-Kilns-project/ijcai_2025_kilns/different_types_gans/swinir_inference.py >> /home/rishabh.mondal/Brick-Kilns-project/ijcai_2025_kilns/different_types_gans/SwinIR_wrapper/log_files/inference.log 2>&1
+echo "Done"

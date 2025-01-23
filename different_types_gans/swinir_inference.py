@@ -31,7 +31,7 @@ import cv2
 
 # Paths
 input_dir = '../data/region_performance/test_bihar_same_class_count_10_120_1000/images'
-output_dir = '../data/swinir_data/test_bihar_same_class_count_10_120_1000/images'
+output_dir = '../data/swinir_data/test_bihar_same_class_count_10_120_1000_4x/images'
 
 # Ensure the output directory exists
 os.makedirs(output_dir, exist_ok=True)
@@ -48,12 +48,12 @@ def process_images(input_dir, output_dir):
             img_hq = sr.upscale(img_lq)  # Adjust the method based on your SR model's API
             
             # Resize the image back to the original dimensions
-            image_resized = cv2.resize(img_hq, (img_lq.shape[1], img_lq.shape[0]), interpolation=cv2.INTER_AREA)
+            # image_resized = cv2.resize(img_hq, (img_lq.shape[1], img_lq.shape[0]), interpolation=cv2.INTER_AREA)
             
             # Save the result as a .png file
             output_filename = os.path.splitext(filename)[0] + '.png'
             output_path = os.path.join(output_dir, output_filename)
-            cv2.imwrite(output_path, image_resized)
+            cv2.imwrite(output_path, img_hq)
             
             # Optional: Display or compare the images (for debugging or validation)
             # compare_sr_with_original(img_lq, image_resized)  # Implement or call your comparison function

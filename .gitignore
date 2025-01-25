@@ -1,4 +1,6 @@
 runs/obb/*
+runs/aa/*
+runs/obb_sr/*
 region_performance_logs/*
 sh_notebooks/*.pt
 result_csv/*.csv

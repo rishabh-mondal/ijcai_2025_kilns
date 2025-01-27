@@ -1,23 +1,23 @@
-train_state="jcss_processed_data"
-test_state="bihar_same_class_count"
+train_state="bihar_same_class_count_10_120_1000_4x"
+test_state="bihar_same_class_count_10_120_1000_4x"
 name="train_${train_state}_test_${test_state}"
-ratio=10_120_1000
+ratio=10_120_1000_4x
 task=obb
-suffix=v1
-model_dir="/home/patel_zeel/kiln_compass_24/runs/obb/config_name=obb_base&train_folder=m1_obb_without_empty_train&val_folder=m1_obb_without_empty_val/weights"
-model="$model_dir/best.pt"
-image_size=640
-batch_size=64
+suffix=v2
+model_dir=/home/patel_zeel/kiln_compass_24
+model=yolo11x-obb.pt
+image_size=2560
+batch_size=4
 save_period=100
 epochs=300
-device=2
+device=3
 base_path=/home/rishabh.mondal/Brick-Kilns-project/ijcai_2025_kilns
 data_path=$base_path/yaml_data_dir/train_test.yaml
 val=False
 # val_interval=10 #not supported in train mode 
 save_conf=True
 save_txt=False
-experiment_name=$name\_$ratio\_$task\_$suffix\_$image_size\_$batch_size\_$epochs
+experiment_name=$name\_$ratio\_$task\_$suffix\_$model\_$image_size\_$batch_size\_$epochs
 log_file=$base_path/region_performance_logs/$experiment_name
 
 echo "Name: $name"
@@ -49,7 +49,7 @@ nohup yolo obb train model=$model\
     batch=$batch_size\
     save_conf=$save_conf\
     save_txt=$save_txt\
-    name=$base_path/runs/obb/$experiment_name\
+    name=$base_path/runs/obb_sr/$experiment_name\
     save=True\
     > $log_file.log 2>&1 &
 

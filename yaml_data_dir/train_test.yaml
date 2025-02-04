@@ -1,4 +1,4 @@
-train: /home/rishabh.mondal/Brick-Kilns-project/ijcai_2025_kilns/data/jcss_processed_data/combined_data
-val: /home/rishabh.mondal/Brick-Kilns-project/ijcai_2025_kilns/data/region_performance/test_bihar_same_class_count_10_120_1000
+train: /home/rishabh.mondal/Brick-Kilns-project/ijcai_2025_kilns/data/swinir_data/m0_obb_without_empty_train_4x
+val: /home/rishabh.mondal/Brick-Kilns-project/ijcai_2025_kilns/data/swinir_data/m0_obb_without_empty_val_4x
 nc: 3
 names: ['CFCBK','FCBK', 'Zigzag']

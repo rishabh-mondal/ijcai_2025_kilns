@@ -1,11 +1,17 @@
 from SwinIR_wrapper.SwinIR_wrapper import SwinIR_SR
-
+import os
 import cv2
 import torch
 import urllib.request
 import matplotlib.pyplot as plt
 
-device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
+# Limit CPU usage to 32 cores
+os.environ["OMP_NUM_THREADS"] = "32"
+os.environ["MKL_NUM_THREADS"] = "32"
+torch.set_num_threads(32)
+
+
+device = torch.device('cuda:0' if torch.cuda.is_available() else 'cpu')
 
 if torch.cuda.is_available():
     print(f'Using GPU: {torch.cuda.get_device_properties(0).name}')
@@ -30,8 +36,8 @@ import cv2
  # Replace with the actual module or model you're using
 
 # Paths
-input_dir = '../data/region_performance/test_bihar_same_class_count_10_120_1000/images'
-output_dir = '../data/swinir_data/test_bihar_same_class_count_10_120_1000_4x/images'
+input_dir = '/home/patel_zeel/kiln_compass_24/data/m0_obb_without_empty_val/images'
+output_dir = '../data/swinir_data/m0_obb_without_empty_val_4x/images'
 
 # Ensure the output directory exists
 os.makedirs(output_dir, exist_ok=True)

@@ -1,16 +1,16 @@
 #!/bin/bash
 
-train="trench_width_delhi_ncr"
+train="train_jcss_processed_data_test_bihar_same_class_count_10_120_1000"
 task="obb"
 suffix="v2"
 root_path="/home/rishabh.mondal/Brick-Kilns-project/ijcai_2025_kilns"
-base_path="/home/rishabh.mondal/Brick-Kilns-project/ijcai_2025_kilns/data/gms_data"
-state_part_name="delhi_ncr_data"
-data="$base_path/$state_part_name/images_main"
+state_part_name="khulna"
+base_path="../data/processed_data/$state_part_name"
+data="$base_path/images"
 imgsz=640
-epochs=100
+epochs=300
 device=1
-model="/home/rishabh.mondal/Brick-Kilns-project/ijcai_2025_kilns/runs/aa/train_trench_width_delhi_ncr_test_delhi_ncr_bricks_92_obb_v1_yolo11m-obb.pt_640_128_100/weights/best.pt"
+model="../runs/obb/train_jcss_processed_data_test_bihar_same_class_count_10_120_1000_obb_v1_640_64_300/weights/best.pt"
 log_dir="$root_path/region_performance_logs"
 log_file="$log_dir/$state_part_name.log"
 
@@ -33,6 +33,6 @@ echo "Log Dir:" $log_dir
 echo "Log File:" $log_file
 
 # Execute the YOLO prediction command with nohup
-nohup yolo obb predict model=$model source=$data conf=0.25 iou=0.5 imgsz=$imgsz device=$device name="$root_path/predict/$experimentName/$state_part_name" save_txt=True save=False save_conf=True save_crop=False verbose=True > $log_file 2>&1 &
+nohup yolo obb predict model=$model source=$data conf=0.25 iou=0.5 imgsz=$imgsz device=$device name="$root_path/data/predict/processed_labels/$state_part_name" save_txt=True save=False save_conf=True save_crop=False verbose=True > $log_file 2>&1 &
 
 echo "Job fired!"

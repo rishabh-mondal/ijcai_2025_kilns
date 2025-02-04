@@ -1,16 +1,16 @@
-train_state="jcss_processed_data"
-test_state="bihar_same_class_count"
+train_state="m0_obb_without_empty_train_swinir_4x"
+test_state="m0_obb_without_empty_val_swinir_4x"
 name="train_${train_state}_test_${test_state}"
-ratio=10_120_1000
+ratio=80_20
 task=obb
-suffix=v1
-model_dir="/home/patel_zeel/kiln_compass_24/runs/obb/config_name=obb_base&train_folder=m1_obb_without_empty_train&val_folder=m1_obb_without_empty_val/weights"
-model="$model_dir/best.pt"
-image_size=640
-batch_size=64
-save_period=100
-epochs=300
-device=2
+suffix=v2
+model_dir="/home/rishabh.mondal/Brick-Kilns-project/ijcai_2025_kilns/runs/obb_m0/train_m0_obb_without_empty_train_swinir_4x_test_m0_obb_without_empty_val_swinir_4x_80_20_obb_v1_2560_8_100/weights"
+model=$model_dir/best.pt
+image_size=2560
+batch_size=8
+# save_period=100
+epochs=100
+device=3
 base_path=/home/rishabh.mondal/Brick-Kilns-project/ijcai_2025_kilns
 data_path=$base_path/yaml_data_dir/train_test.yaml
 val=False
@@ -18,7 +18,7 @@ val=False
 save_conf=True
 save_txt=False
 experiment_name=$name\_$ratio\_$task\_$suffix\_$image_size\_$batch_size\_$epochs
-log_file=$base_path/region_performance_logs/$experiment_name
+log_file=$base_path/m0_logs/$experiment_name
 
 echo "Name: $name"
 echo "Task: $task"
@@ -44,12 +44,12 @@ nohup yolo obb train model=$model\
     epochs=$epochs\
     device=$device\
     val=$val\
-    save_period=$save_period\
     workers=8\
     batch=$batch_size\
     save_conf=$save_conf\
     save_txt=$save_txt\
-    name=$base_path/runs/obb/$experiment_name\
+    exist_ok=True\
+    name=$base_path/runs/obb_m0/$experiment_name\
     save=True\
     > $log_file.log 2>&1 &
 

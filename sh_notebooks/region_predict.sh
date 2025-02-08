@@ -1,10 +1,9 @@
 #!/bin/bash
-
 train="train_jcss_processed_data_test_bihar_same_class_count_10_120_1000"
 task="obb"
 suffix="v2"
 root_path="/home/rishabh.mondal/Brick-Kilns-project/ijcai_2025_kilns"
-state_part_name="khulna"
+state_part_name="mymensingh"
 base_path="../data/processed_data/$state_part_name"
 data="$base_path/images"
 imgsz=640
@@ -34,5 +33,4 @@ echo "Log File:" $log_file
 
 # Execute the YOLO prediction command with nohup
 nohup yolo obb predict model=$model source=$data conf=0.25 iou=0.5 imgsz=$imgsz device=$device name="$root_path/data/predict/processed_labels/$state_part_name" save_txt=True save=False save_conf=True save_crop=False verbose=True > $log_file 2>&1 &
-
 echo "Job fired!"

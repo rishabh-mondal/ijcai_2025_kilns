@@ -14,3 +14,4 @@ handvalidation_cache_dir/*
 cyclegan/*.pth.tar
 regions/*
 runs/*
+intern/*
